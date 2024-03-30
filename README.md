@@ -13,7 +13,7 @@ URL Shortener is a web application that allows you to shorten URLs with a custom
 
 ## Demo :movie_camera:
 
-https://github.com/ASJordi/url-shortener-java/blob/main/src/main/resources/demo.mp4
+https://github.com/ASJordi/url-shortener-java/assets/48893030/ce0019c5-de80-4144-bb62-973210f1fea0
 
 ## Stack :hammer_and_wrench:
 
