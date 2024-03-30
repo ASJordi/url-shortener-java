@@ -11,6 +11,10 @@ URL Shortener is a web application that allows you to shorten URLs with a custom
 <img src="src/main/resources/app01.png" alt="app01" width="400"/>
 <img src="src/main/resources/app02.png" alt="app01" width="400"/>
 
+## Demo :movie_camera:
+
+https://github.com/ASJordi/url-shortener-java/blob/main/src/main/resources/demo.mp4
+
 ## Stack :hammer_and_wrench:
 
 * Java SE
