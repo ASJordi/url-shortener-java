@@ -23,7 +23,6 @@ public class UrlRedirectServlet extends HttpServlet {
 
         if (pathInfo != null && !pathInfo.isBlank()) {
             String hash = pathInfo.substring(1);
-            System.out.println("Hash: " + hash);
             var oUrl = service.findByHash(hash);
 
             if (oUrl.isPresent()) resp.sendRedirect(oUrl.get().getUrl());
