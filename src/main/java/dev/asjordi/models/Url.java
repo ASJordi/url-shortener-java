@@ -1,9 +1,15 @@
 package dev.asjordi.models;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "urls")
 public class Url {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String url;
     private String hash;

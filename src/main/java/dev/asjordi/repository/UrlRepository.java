@@ -17,7 +17,7 @@ public class UrlRepository implements IRepository<Url> {
     private Connection conn;
 
     @Override
-    public List<Url> findAll() throws SQLException {
+    public List<Url> findAll() throws Exception {
         List<Url> urls = new LinkedList<>();
 
         try (var stmt = conn.createStatement();
@@ -31,7 +31,7 @@ public class UrlRepository implements IRepository<Url> {
     }
 
     @Override
-    public Url findById(Integer id) throws SQLException {
+    public Url findById(Integer id) throws Exception {
         Url url = null;
 
         try (var ps = conn.prepareStatement("SELECT * FROM urls WHERE id = ?;")) {
@@ -45,7 +45,7 @@ public class UrlRepository implements IRepository<Url> {
     }
 
     @Override
-    public Url findByHash(String hash) throws SQLException {
+    public Url findByHash(String hash) throws Exception {
         Url url = null;
 
         try (var ps = conn.prepareStatement("SELECT * FROM urls WHERE hash = ?;")) {
@@ -59,7 +59,7 @@ public class UrlRepository implements IRepository<Url> {
     }
 
     @Override
-    public void save(Url url) throws SQLException {
+    public void save(Url url) throws Exception {
         String sql = "INSERT INTO urls (url, hash, created) VALUES (?, ?, ?);";
 
         try (var ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -78,14 +78,14 @@ public class UrlRepository implements IRepository<Url> {
     }
 
     @Override
-    public void delete(Integer id) throws SQLException {
+    public void delete(Integer id) throws Exception {
         try (var ps = conn.prepareStatement("DELETE FROM urls WHERE id = ?;")) {
             ps.setInt(1, id);
             ps.executeUpdate();
         }
     }
 
-    private Url createUrl(ResultSet rs) throws SQLException {
+    private Url createUrl(ResultSet rs) throws Exception {
         Url url = new Url();
         url.setId(rs.getInt("id"));
         url.setUrl(rs.getString("url"));

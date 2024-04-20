@@ -2,6 +2,7 @@ package dev.asjordi.service;
 
 import dev.asjordi.configs.Service;
 import dev.asjordi.exceptions.ServiceJDBCException;
+import dev.asjordi.interceptors.TransactionalJpa;
 import dev.asjordi.models.Url;
 import dev.asjordi.repository.IRepository;
 import jakarta.inject.Inject;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@TransactionalJpa
 public class UrlService implements IService<Url> {
 
     @Inject
@@ -20,7 +22,7 @@ public class UrlService implements IService<Url> {
     public List<Url> findAll() {
         try {
             return this.repo.findAll();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new ServiceJDBCException(e.getMessage(), e.getCause());
         }
     }
@@ -29,7 +31,7 @@ public class UrlService implements IService<Url> {
     public Optional<Url> findById(Integer id) {
         try {
             return Optional.ofNullable(this.repo.findById(id));
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new ServiceJDBCException(e.getMessage(), e.getCause());
         }
     }
@@ -38,7 +40,7 @@ public class UrlService implements IService<Url> {
     public Optional<Url> findByHash(String hash) {
         try {
             return Optional.ofNullable(this.repo.findByHash(hash));
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new ServiceJDBCException(e.getMessage(), e.getCause());
         }
     }
@@ -47,7 +49,7 @@ public class UrlService implements IService<Url> {
     public void save(Url p) {
         try {
             this.repo.save(p);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new ServiceJDBCException(e.getMessage(), e.getCause());
         }
     }
@@ -56,7 +58,7 @@ public class UrlService implements IService<Url> {
     public void delete(Integer id) {
         try {
             this.repo.delete(id);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new ServiceJDBCException(e.getMessage(), e.getCause());
         }
     }
