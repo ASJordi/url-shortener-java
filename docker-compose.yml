@@ -22,7 +22,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - PMA_HOST=${PMA_HOST}
-      - PMA_ABSOLUTE_URI=http://localhost:8090
+      - PMA_ABSOLUTE_URI=http://localhost:8081
     ports:
       - "8081:80"
     networks:
