@@ -2,9 +2,13 @@ FROM maven:3.9.9-eclipse-temurin-21 AS build
 
 WORKDIR /app
 
-COPY . .
+COPY pom.xml .
 
-RUN mvn clean package
+RUN mvn -e -B dependency:resolve
+
+COPY src ./src
+
+RUN mvn -e -B package
 
 FROM tomcat:10.1.19-jre21-temurin AS runtime
 
@@ -19,6 +23,7 @@ ENV CATALINA_OPTS="-Dorg.apache.catalina.startup.VersionLoggerListener.log=false
                    -Xms512M -Xmx1024M"
 
 COPY --from=build /app/target/url-shortener.war /usr/local/tomcat/webapps/ROOT.war
-COPY --from=build /app/lib/mysql-connector-java-8.0.30.jar /usr/local/tomcat/lib
+
+COPY lib/mysql-connector-java-8.0.30.jar /usr/local/tomcat/lib
 
 CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
