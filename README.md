@@ -1,12 +1,12 @@
 <div align="center">
-  <h1 align="center"><a href="https://github.com/ASJordi/url-shortener-java">URL Shortener</a></h1>
+  <h1 align="center"><a href="https://url.asjordi.dev/">URL Shortener</a></h1>
 
   <p align="center">URL Shortener with Java and Jakarta EE</p>
 </div>
 
 ## About :computer:
 
-URL Shortener is a web application that allows you to shorten URLs with a custom alias. To do this, it uses MySQL to store the URLs and the aliases. Implements a AUTH_CODE to protect the creation of new URLs. The application is developed with Java and Jakarta EE. Implements JDBC and JPA to interact with the database.
+URL Shortener is a web application that allows you to shorten URLs with a custom alias. To do this, it uses MySQL to store the URLs and the aliases. Implements a AUTH_CODE to protect the creation of new URLs. The application is developed with Java and Jakarta EE. Implements JDBC and JPA to interact with the database. The application is deployed on a VPS using Docker.
 
 <img src="src/main/resources/app01.png" alt="app01" width="400"/>
 <img src="src/main/resources/app02.png" alt="app01" width="400"/>
