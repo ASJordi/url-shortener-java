@@ -31,6 +31,34 @@ https://github.com/ASJordi/url-shortener-java/assets/48893030/ce0019c5-de80-4144
 
 ## Installation :gear:
 
+> You can run the application in a Docker container or in your local environment.
+
+> If you don't want to build the application, you can download the Docker image from the [Packages section](https://github.com/ASJordi/url-shortener-java/pkgs/container/url-shortener-java)
+
+### Docker :whale:
+
+- Build the Docker image
+
+  ```bash
+  docker build -t todo-app .
+  ```
+
+- Run the Docker container
+
+  ```bash
+    docker container run -p 8080:8080 todo-app
+  ```
+
+- Use `docker-compose` to run the application with MySQL and PhpMyAdmin
+
+  ```bash
+  docker compose up -d
+  ```
+
+> Make sure to create the database with the script in `src/main/resources/db/db.sql` before running the application.
+
+### Local :computer:
+
 - Clone the repository
 
   ```bash
