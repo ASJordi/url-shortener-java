@@ -35,7 +35,8 @@ services:
         - default
 
   web:
-    image: asjordi/url-shortener:1.0.0
+    image: ghcr.io/asjordi/url-shortener-java:main
+#    image: asjordi/url-shortener:1.0.0
     container_name: url-shortener
     restart: unless-stopped
     depends_on:
